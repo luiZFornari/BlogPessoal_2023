@@ -88,6 +88,7 @@ const Menu = () => (
         </button>
       </div>
     </nav>
+    <Publicacao />
   </>
 );
 

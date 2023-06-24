@@ -65,41 +65,40 @@ function Login() {
 
   return (
     <div>
+      <Menu />
       <body className="login-box">
         <Alerta alerta={alerta} />
-        <Carregando carregando={carregando}>
-          <main className="form-signin">
-            <form onSubmit={acaoLogin}>
-              <h2>Login</h2>
+        <main className="form-signin">
+          <form onSubmit={acaoLogin}>
+            <h2>Login</h2>
 
-              <div className="user-box">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="floatingInput"
-                  placeholder="Email"
-                  value={email}
-                  name="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div className="user-box">
-                <input
-                  type="password"
-                  className="form-control"
-                  id="floatingPassword"
-                  placeholder="Senha"
-                  value={senha}
-                  name="senha"
-                  onChange={(e) => setSenha(e.target.value)}
-                />
-              </div>
-              <button className="w-100 btn btn-lg btn-primary" type="submit">
-                Efetuar login
-              </button>
-            </form>
-          </main>
-        </Carregando>
+            <div className="user-box">
+              <input
+                type="text"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Email"
+                value={email}
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="user-box">
+              <input
+                type="password"
+                className="form-control"
+                id="floatingPassword"
+                placeholder="Senha"
+                value={senha}
+                name="senha"
+                onChange={(e) => setSenha(e.target.value)}
+              />
+            </div>
+            <button className="w-100 btn btn-lg btn-primary" type="submit">
+              Efetuar login
+            </button>
+          </form>
+        </main>
       </body>
     </div>
   );

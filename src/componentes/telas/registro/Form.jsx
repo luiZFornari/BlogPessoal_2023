@@ -54,6 +54,7 @@ function Login() {
 
   return (
     <div>
+      <Menu />
       <body className="login-box">
         <Alerta alerta={alerta} />
         <Carregando carregando={carregando}>
