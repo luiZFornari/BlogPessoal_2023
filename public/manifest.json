@@ -1,0 +1,8 @@
+{
+  "short_name": "BlogPessoal",
+  "name": "Blog Pessoal criado para Disciplina DE PW",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
