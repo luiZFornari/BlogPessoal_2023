@@ -4,6 +4,7 @@ import PublicacaoContext from "./PublicacaoContext";
 import "./Publicacao.css";
 import ComentarioPrivado from "../comentario/ComentarioPrivado";
 import Autenticacao from "../../seg/Autenticacao";
+import jwt_decode from "jwt-decode";
 
 function ItensPrivado() {
   const {
@@ -17,6 +18,7 @@ function ItensPrivado() {
   } = useContext(PublicacaoContext);
 
   const autenticacao = Autenticacao.pegaAutenticacao();
+  const decoded = jwt_decode(autenticacao.token);
 
   (function () {
     "use strict";
@@ -45,7 +47,7 @@ function ItensPrivado() {
   return (
     <div className="BoxPublicação ">
       <Alerta alerta={alerta} />
-      {autenticacao.usuario.codigo == "luizfelipefornari@gmail.com" && (
+      {decoded.usuario.codigo == "luizfelipefornari@gmail.com" && (
         <div id="BtnNovo">
           <h1>
             {" "}
@@ -84,7 +86,7 @@ function ItensPrivado() {
                 <div ClassName="card-body " id="card-body">
                   <div ClassName="card-title" id="cardtitle">
                     <div id="titulo">{objeto.titulo}</div>
-                    {autenticacao.usuario.codigo ==
+                    {decoded.usuario.codigo ==
                       "luizfelipefornari@gmail.com" && (
                       <div id="botoes">
                         <button

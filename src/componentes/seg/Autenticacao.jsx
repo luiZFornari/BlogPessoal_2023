@@ -26,7 +26,7 @@ const pegaAutenticacao = () => {
     } else {
       console.log("Token não expirado");
       //setAutenticacao(autenticacao);
-      return decoded;
+      return autenticacao;
     }
   }
 };
