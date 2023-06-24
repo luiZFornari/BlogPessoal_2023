@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Alerta from "../../comuns/Alerta";
 import ComentarioContext from "./ComentarioContext";
+import FormularioComentario from "./FormularioComentario";
 import "../publicacao/Publicacao.css";
 
 function ItensComentario() {
@@ -47,7 +48,7 @@ function ItensComentario() {
             type="button"
             className="btn btn-primary"
             data-bs-toggle="modal"
-            data-bs-target="#Formulario"
+            data-bs-target="#modalFormularioComentario"
             title="Novo"
             onClick={() => {
               setComentario({
@@ -89,7 +90,7 @@ function ItensComentario() {
                         className="btn btn-info"
                         title="Edicao"
                         data-bs-toggle="modal"
-                        data-bs-target="#Formulario"
+                        data-bs-target="#modalFormularioComentario"
                         id="buttonsEdição"
                         onClick={() => {
                           recuperar(e.codigo);

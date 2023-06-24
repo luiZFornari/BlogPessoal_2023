@@ -17,6 +17,7 @@ const pegaAutenticacao = () => {
     return null;
   } else {
     var decoded = jwt_decode(autenticacao.token);
+
     // verificando se o token não expirou
     if (decoded.exp <= Math.floor(new Date() / 1000)) {
       console.log("Token expirado");
@@ -25,7 +26,7 @@ const pegaAutenticacao = () => {
     } else {
       console.log("Token não expirado");
       //setAutenticacao(autenticacao);
-      return autenticacao;
+      return decoded;
     }
   }
 };

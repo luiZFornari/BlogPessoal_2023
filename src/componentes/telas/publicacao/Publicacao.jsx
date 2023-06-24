@@ -35,24 +35,6 @@ function Publicacao() {
     }
   };
 
-  const acaoCadastrar = async (e) => {
-    e.preventDefault();
-    const metodo = editar ? "PUT" : "POST";
-    try {
-      let retornoAPI = await cadastraPublicacoesAPI(objeto, metodo);
-      setAlerta({ status: retornoAPI.status, message: retornoAPI.message });
-      setObjeto(retornoAPI.objeto);
-      if (!editar) {
-        setEditar(true);
-      }
-    } catch (err) {
-      console.log(err);
-      window.location.reload();
-      navigate("/login", { replace: true });
-    }
-    recuperaPublicacoes();
-  };
-
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -70,19 +52,6 @@ function Publicacao() {
     }
   };
 
-  const remover = async (objeto) => {
-    if (window.confirm("Deseja remover este objeto?")) {
-      try {
-        let retornoAPI = await deletePublicacoesPorCodigoAPI(objeto.codigo);
-        setAlerta({ status: retornoAPI.status, message: retornoAPI.message });
-      } catch (err) {
-        window.location.reload();
-        navigate("/login", { replace: true });
-      }
-    }
-    recuperaPublicacoes();
-  };
-
   useEffect(() => {
     recuperaPublicacoes();
   }, []);
@@ -95,13 +64,11 @@ function Publicacao() {
         listaObjetos,
         setListaObjetos,
         recuperaPublicacoes,
-        remover,
         objeto,
         setObjeto,
         editar,
         setEditar,
         recuperar,
-        acaoCadastrar,
         handleChange,
       }}
     >

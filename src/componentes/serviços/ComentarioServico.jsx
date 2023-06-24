@@ -7,7 +7,7 @@ export const getComentarioPorPublicacaoAPI = async (codigo) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "x-access-token": Autenticacao.pegaAutenticacao().token,
+        "x-access-token": "",
       },
     }
   );

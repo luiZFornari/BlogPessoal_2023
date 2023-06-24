@@ -10,10 +10,10 @@ function FormularioComentario() {
 
   return (
     <Dialogo
-      id="Formulario"
+      id="modalFormularioComentario"
       titulo="Novo Comentario"
       acaoCadastrar={acaoCadastrar}
-      idform="Formulario"
+      idform="formulario"
     >
       <Alerta alerta={alerta} />
       <CampoEntrada

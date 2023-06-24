@@ -7,7 +7,6 @@ export const getPublicacoesAPI = async () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "x-access-token": Autenticacao.pegaAutenticacao().token,
       },
     }
   );

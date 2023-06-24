@@ -1,7 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import Publicacao from "./telas/publicacao/Publicacao";
 
 const Menu = () => (
   <>

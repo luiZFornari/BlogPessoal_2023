@@ -8,15 +8,16 @@ import React from "react";
 import Login from "./componentes/telas/login/Login";
 import MenuPublico from "./componentes/MenuPublico";
 import Registrar from "./componentes/telas/registro/Form";
+import Menu from "./componentes/Menu";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<MenuPublico />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registrar" element={<Registrar />} />
-        <Route path="/privado" element={<MenuPrivado />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/registrar" element={<Registrar />} />
+        <Route exact path="/privado" element={<MenuPrivado />} />
       </Routes>
     </BrowserRouter>
   );

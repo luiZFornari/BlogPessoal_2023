@@ -3,6 +3,7 @@ import Alerta from "../../comuns/Alerta";
 import PublicacaoContext from "./PublicacaoContext";
 import "./Publicacao.css";
 import ComentarioPrivado from "../comentario/ComentarioPrivado";
+import Autenticacao from "../../seg/Autenticacao";
 
 function ItensPrivado() {
   const {
@@ -14,6 +15,8 @@ function ItensPrivado() {
     setEditar,
     recuperar,
   } = useContext(PublicacaoContext);
+
+  const autenticacao = Autenticacao.pegaAutenticacao();
 
   (function () {
     "use strict";
@@ -42,32 +45,34 @@ function ItensPrivado() {
   return (
     <div className="BoxPublicação ">
       <Alerta alerta={alerta} />
-      <div id="BtnNovo">
-        <h1>
-          {" "}
-          <button
-            type="button"
-            className="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#modalEdicao"
-            title="Novo"
-            onClick={() => {
-              setObjeto({
-                codigo: 0,
-                titulo: "",
-                descricao: "",
-                data: "",
-                imagem: "",
-                link: "",
-              });
-              setEditar(false);
-              setAlerta({ status: "", message: "" });
-            }}
-          >
-            Nova Publicação <i className="bi bi-file-earmark-plus"></i>
-          </button>
-        </h1>
-      </div>
+      {autenticacao.usuario.codigo == "luizfelipefornari@gmail.com" && (
+        <div id="BtnNovo">
+          <h1>
+            {" "}
+            <button
+              type="button"
+              className="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#modalEdicao"
+              title="Novo"
+              onClick={() => {
+                setObjeto({
+                  codigo: 0,
+                  titulo: "",
+                  descricao: "",
+                  data: "",
+                  imagem: "",
+                  link: "",
+                });
+                setEditar(false);
+                setAlerta({ status: "", message: "" });
+              }}
+            >
+              Nova Publicação <i className="bi bi-file-earmark-plus"></i>
+            </button>
+          </h1>
+        </div>
+      )}
       {listaObjetosInvertida.length === 0 && (
         <h1>Nenhuma publicaçao encontrada</h1>
       )}
@@ -79,32 +84,35 @@ function ItensPrivado() {
                 <div ClassName="card-body " id="card-body">
                   <div ClassName="card-title" id="cardtitle">
                     <div id="titulo">{objeto.titulo}</div>
-                    <div id="botoes">
-                      <button
-                        className="btn btn-danger"
-                        title="Remover"
-                        id="buttonsEdição"
-                        onClick={() => {
-                          remover(objeto);
-                        }}
-                      >
-                        <i className="bi bi-trash"></i>
-                      </button>
-                      <button
-                        className="btn btn-info"
-                        title="Edicao"
-                        data-bs-toggle="modal"
-                        data-bs-target="#modalEdicao"
-                        id="buttonsEdição"
-                        onClick={() => {
-                          recuperar(objeto.codigo);
-                          setEditar(true);
-                          setAlerta({ status: "", message: "" });
-                        }}
-                      >
-                        <i className="bi bi-pencil-square"></i>
-                      </button>
-                    </div>
+                    {autenticacao.usuario.codigo ==
+                      "luizfelipefornari@gmail.com" && (
+                      <div id="botoes">
+                        <button
+                          className="btn btn-danger"
+                          title="Remover"
+                          id="buttonsEdição"
+                          onClick={() => {
+                            remover(objeto);
+                          }}
+                        >
+                          <i className="bi bi-trash"></i>
+                        </button>
+                        <button
+                          className="btn btn-info"
+                          title="Edicao"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalEdicao"
+                          id="buttonsEdição"
+                          onClick={() => {
+                            recuperar(objeto.codigo);
+                            setEditar(true);
+                            setAlerta({ status: "", message: "" });
+                          }}
+                        >
+                          <i className="bi bi-pencil-square"></i>
+                        </button>
+                      </div>
+                    )}
                   </div>
                   <div ClassName="card-text" id="cardText">
                     <br />

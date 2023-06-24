@@ -41,23 +41,6 @@ function Comentario({ codigoPublicacao }) {
     }
   };
 
-  const acaoCadastrar = async (e) => {
-    e.preventDefault();
-    const metodo = editar ? "PUT" : "POST";
-    try {
-      let retornoAPI = await cadastraComentariosAPI(comentario, metodo);
-      setAlerta({ status: retornoAPI.status, message: retornoAPI.message });
-      setComentario(retornoAPI.objeto);
-      if (!editar) {
-        setEditar(true);
-      }
-    } catch (err) {
-      window.location.reload();
-      navigate("/login", { replace: true });
-    }
-    recuperaComentarios(codigoPublicacao);
-  };
-
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -79,20 +62,6 @@ function Comentario({ codigoPublicacao }) {
     setPublicacao(await getPublicacoesPorCodigoAPI(objeto.codigo));
   };
 
-  const remover = async (objeto) => {
-    if (window.confirm("Deseja remover este objeto?")) {
-      try {
-        let retornoAPI = await deleteComentarioPorCodigoAPI(objeto.codigo);
-        setAlerta({ status: retornoAPI.status, message: retornoAPI.message });
-      } catch (err) {
-        console.log(err);
-        window.location.reload();
-        navigate("/login", { replace: true });
-      }
-    }
-    recuperaComentarios(codigoPublicacao);
-  };
-
   useEffect(() => {
     recuperaComentarios(codigoPublicacao);
     recuperaPublicacao(codigoPublicacao);
@@ -101,9 +70,7 @@ function Comentario({ codigoPublicacao }) {
   return (
     <ComentarioContext.Provider
       value={{
-        remover,
         handleChange,
-        acaoCadastrar,
         recuperar,
         carregando,
         setCarrengando,

@@ -29,10 +29,7 @@ function Publicacao() {
   const recuperar = async (codigo) => {
     try {
       setObjeto(await getPublicacoesPorCodigoAPI(codigo));
-    } catch (err) {
-      window.location.reload();
-      navigate("/login", { replace: true });
-    }
+    } catch (err) {}
   };
 
   const acaoCadastrar = async (e) => {
@@ -47,8 +44,6 @@ function Publicacao() {
       }
     } catch (err) {
       console.log(err);
-      window.location.reload();
-      navigate("/login", { replace: true });
     }
     recuperaPublicacoes();
   };
@@ -64,10 +59,7 @@ function Publicacao() {
       setCarrengando(true);
       setListaObjetos(await getPublicacoesAPI());
       setCarrengando(false);
-    } catch (err) {
-      window.location.reload();
-      navigate("/login", { replace: true });
-    }
+    } catch (err) {}
   };
 
   const remover = async (objeto) => {
@@ -75,10 +67,7 @@ function Publicacao() {
       try {
         let retornoAPI = await deletePublicacoesPorCodigoAPI(objeto.codigo);
         setAlerta({ status: retornoAPI.status, message: retornoAPI.message });
-      } catch (err) {
-        window.location.reload();
-        navigate("/login", { replace: true });
-      }
+      } catch (err) {}
     }
     recuperaPublicacoes();
   };
