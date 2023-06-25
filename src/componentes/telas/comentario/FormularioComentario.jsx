@@ -3,7 +3,7 @@ import Alerta from "../../comuns/Alerta";
 import ComentarioContext from "./ComentarioContext";
 import CampoEntrada from "../../comuns/CampoEntrada";
 import Dialogo from "../../comuns/Dialogo";
-import "Formulario.css";
+import ",/Formulario.css";
 
 function FormularioComentario() {
   const { comentario, handleChange, acaoCadastrar, alerta } =

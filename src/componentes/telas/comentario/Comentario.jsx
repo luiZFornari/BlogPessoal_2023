@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import FormularioComentario from "./FormularioComentario";
 import Carregando from "../../comuns/Carregando";
 import {
   getPublicacoes,
