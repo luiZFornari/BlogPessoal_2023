@@ -11,6 +11,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import ComentarioContext from "./ComentarioContext";
 import ItensComentarioPrivado from "./ItensComentarioPrivado";
+import WithAuth from "../../seg/WithAuth";
 
 function ComentarioPrivado({ codigoPublicacao }) {
   let navigate = useNavigate();
@@ -113,7 +114,7 @@ function ComentarioPrivado({ codigoPublicacao }) {
       }}
     >
       <Carregando carregando={carregando}>
-        <ItensComentarioPrivado />
+        <ItensComentarioPrivado publicacao={codigoPublicacao} />
       </Carregando>
       <FormularioComentario />
     </ComentarioContext.Provider>

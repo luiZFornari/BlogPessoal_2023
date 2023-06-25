@@ -12,7 +12,7 @@
 #cardPublicacao {
   text-align: center;
   padding: 10px;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -78,25 +78,15 @@
   border: 4px solid rgb(0, 0, 0);
 }
 
-#rodape {
-  position: relative;
-
+.button-container {
+  display: flex;
   width: 100%;
   height: 100%;
   margin-bottom: 20px;
+  justify-content: space-between;
 }
 
-#link {
-  float: left;
-  width: 40%;
-}
-
-#data {
-  float: right;
-  width: 40%;
-
-  margin-top: 10px;
-  text-align: right;
+.button {
 }
 
 #BtnNovo {
@@ -114,14 +104,24 @@
   padding: 8px;
 }
 
+#cardComentario {
+  margin: 5px;
+}
+
 @media (max-width: 1000px) {
   #card-body {
     width: 100%;
+    height: 100%;
+  }
+  #cardPublicacao {
+    width: 100%;
+    height: 100%;
   }
   #card-body h5 {
-    width: 80%;
+    width: 70%;
   }
-  #botoes {
-    width: 20%;
+  .button {
+    width: 50%;
+    height: 50%;
   }
 }

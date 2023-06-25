@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 import FormularioComentario from "./FormularioComentario";
 import Carregando from "../../comuns/Carregando";
-import {
-  getPublicacoes,
-  getPublicacoesPorCodigoAPI,
-} from "../../serviços/PublicacaoServico";
+import { getPublicacoesAPI } from "../../serviços/PublicacaoServico";
 import {
   getComentarioPorPublicacaoAPI,
   getComentarioPorCodigoAPI,
@@ -15,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import ComentarioContext from "./ComentarioContext";
 import ItensComentario from "./ItensComentario";
 
-function Comentario({ codigoPublicacao }) {
+function ComentarioPrivado({ codigoPublicacao }) {
   let navigate = useNavigate();
 
   const [alerta, setAlerta] = useState({ status: "", message: "" });
@@ -29,16 +26,32 @@ function Comentario({ codigoPublicacao }) {
     publicacao: "",
   });
   const [carregando, setCarrengando] = useState(true);
-  const [publicacao, setPublicacao] = useState([]);
+  const [listaPublicacao, setListaPublicacao] = useState([]);
 
   const recuperar = async (codigo) => {
     try {
       setComentario(await getComentarioPorCodigoAPI(codigo));
-      recuperaPublicacao(comentario.codigo);
     } catch (err) {
       window.location.reload();
       navigate("/login", { replace: true });
     }
+  };
+
+  const acaoCadastrar = async (e) => {
+    e.preventDefault();
+    const metodo = editar ? "PUT" : "POST";
+    try {
+      let retornoAPI = await cadastraComentariosAPI(comentario, metodo);
+      setAlerta({ status: retornoAPI.status, message: retornoAPI.message });
+      setComentario(retornoAPI.objeto);
+      if (!editar) {
+        setEditar(true);
+      }
+    } catch (err) {
+      window.location.reload();
+      navigate("/login", { replace: true });
+    }
+    recuperaComentarios(codigoPublicacao);
   };
 
   const handleChange = (e) => {
@@ -58,24 +71,38 @@ function Comentario({ codigoPublicacao }) {
     }
   };
 
-  const recuperaPublicacao = async (objeto) => {
-    setPublicacao(await getPublicacoesPorCodigoAPI(objeto.codigo));
+  const recuperaPublicacao = async () => {
+    setListaPublicacao(await getPublicacoesAPI());
+  };
+
+  const remover = async (objeto) => {
+    if (window.confirm("Deseja remover este objeto?")) {
+      try {
+        let retornoAPI = await deleteComentarioPorCodigoAPI(objeto.codigo);
+        setAlerta({ status: retornoAPI.status, message: retornoAPI.message });
+      } catch (err) {
+        console.log(err);
+        window.location.reload();
+        navigate("/login", { replace: true });
+      }
+    }
+    recuperaComentarios(codigoPublicacao);
   };
 
   useEffect(() => {
     recuperaComentarios(codigoPublicacao);
-    recuperaPublicacao(codigoPublicacao);
+    recuperaPublicacao();
   }, [codigoPublicacao]);
 
   return (
     <ComentarioContext.Provider
       value={{
+        remover,
         handleChange,
+        acaoCadastrar,
         recuperar,
         carregando,
         setCarrengando,
-        publicacao,
-        setPublicacao,
         listaComentarios,
         setListaComentario,
         alerta,
@@ -92,4 +119,4 @@ function Comentario({ codigoPublicacao }) {
   );
 }
 
-export default Comentario;
+export default ComentarioPrivado;

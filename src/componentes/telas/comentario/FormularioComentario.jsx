@@ -17,7 +17,7 @@ function FormularioComentario() {
     >
       <Alerta alerta={alerta} />
       <CampoEntrada
-        id="txtCodigo"
+        id="txtcodigo"
         label="Código"
         entrada="input"
         tipo="number"
@@ -29,16 +29,16 @@ function FormularioComentario() {
       />
       <CampoEntrada
         tipo="text"
-        label="Titulo"
-        id="txttitulo"
+        label="Texto"
+        id="txttexto"
         entrada="input"
-        name="titulo"
+        name="texto"
         value={comentario.texto}
         onchange={handleChange}
         requerido={true}
         readonly={false}
-        msgvalido="Titulo OK"
-        msginvalido="Informe o Titulo"
+        msgvalido="Texto OK"
+        msginvalido="Informe o Texto"
         maxlength={150}
       />
       <CampoEntrada
@@ -48,33 +48,33 @@ function FormularioComentario() {
         id="txtData"
         name="data"
         value={comentario.data}
-        onChange={handleChange}
+        onchange={handleChange}
         requerido={true}
         readonly={false}
         msgvalido="Data OK"
         msginvalido="Informe o Data"
       />
       <CampoEntrada
-        tipo="text"
+        id="txtusuario"
         label="Usuario"
         entrada="input"
-        id="txtUsuario"
+        tipo="number"
         name="usuario"
         value={comentario.usuario}
-        onChange={handleChange}
+        onchange={handleChange}
         requerido={true}
-        readonly={false}
+        readonly={true}
       />
       <CampoEntrada
         tipo="text"
         label="Publicacao"
         entrada="input"
-        id="txtPublicacao"
+        id="txtpublicacao"
         name="publicacao"
         value={comentario.publicacao}
         onChange={handleChange}
         requerido={true}
-        readonly={false}
+        readonly={true}
       />
     </Dialogo>
   );

@@ -33,7 +33,10 @@ function Login() {
       })
         .then((response) => response.json())
         .then((json) => {
-          setAlerta({ status: "success", message: JSON.stringify(json) });
+          setAlerta({
+            status: "success",
+            message: JSON.stringify(json.message),
+          });
           // Lógica adicional após o cadastro, se necessário
         });
       setCarrengando(false);

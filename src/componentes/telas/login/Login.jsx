@@ -32,7 +32,10 @@ function Login() {
       })
         .then((response) => response.json())
         .then((json) => {
-          setAlerta({ status: "success", message: JSON.stringify(json) });
+          setAlerta({
+            status: "success",
+            message: JSON.stringify(json.message),
+          });
           if (json.auth === true) {
             setAutenticado(true);
             gravaAutenticacao(json);

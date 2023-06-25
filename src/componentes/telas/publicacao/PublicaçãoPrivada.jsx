@@ -10,6 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import ItensPrivado from "./ItensPrivados";
 import Formulario from "./Formulario";
+import withAuth from "../../seg/WithAuth";
 
 function Publicacao() {
   let navigate = useNavigate();

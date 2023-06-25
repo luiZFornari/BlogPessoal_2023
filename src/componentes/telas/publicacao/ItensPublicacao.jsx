@@ -57,8 +57,25 @@ function ItensPublico() {
                       )}
                     </div>
                     <br />
-                    <div id="rodape">
-                      <div id="link">
+                    <div className="button-container">
+                      <div className="button">
+                        <button
+                          class="btn btn-primary"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseExample"
+                          aria-expanded="false"
+                          aria-controls="collapseExample"
+                        >
+                          Comentarios
+                        </button>
+                      </div>
+                      <div className="data">
+                        <small ClassName="text-body-secondary">
+                          {objeto.data} {objeto.codigo}
+                        </small>
+                      </div>
+                      <div className="button">
                         {objeto.link && (
                           <a
                             href={objeto.link}
@@ -72,22 +89,6 @@ function ItensPublico() {
                           </a>
                         )}
                       </div>
-
-                      <div id="data">
-                        <small ClassName="text-body-secondary">
-                          {objeto.data} {objeto.codigo}
-                        </small>
-                      </div>
-                      <button
-                        class="btn btn-primary"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseExample"
-                        aria-expanded="false"
-                        aria-controls="collapseExample"
-                      >
-                        Comentarios
-                      </button>
                     </div>
                     <div class="collapse" id="collapseExample">
                       <div class="card card-body">

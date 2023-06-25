@@ -37,6 +37,7 @@ const gravaAutenticacao = (json) => {
   const usuario = decodificado.usuario;
   json.nome_usuario = usuario.nome;
   json.email_usuario = usuario.email;
+  json.codigo_usuario = usuario.codigo;
   console.log("autenticacao no grava autenticacao: " + JSON.stringify(json));
   localStorage.setItem(NOMEAPP + "/autenticacao", JSON.stringify(json));
 };

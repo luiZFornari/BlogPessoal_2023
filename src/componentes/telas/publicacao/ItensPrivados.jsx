@@ -5,6 +5,7 @@ import "./Publicacao.css";
 import ComentarioPrivado from "../comentario/ComentarioPrivado";
 import Autenticacao from "../../seg/Autenticacao";
 import jwt_decode from "jwt-decode";
+import WithAuth from "../../seg/WithAuth";
 
 function ItensPrivado() {
   const {
@@ -125,8 +126,25 @@ function ItensPrivado() {
                       )}
                     </div>
                     <br />
-                    <div id="rodape">
-                      <div id="link">
+                    <div className="button-container">
+                      <div className="button">
+                        <button
+                          class="btn btn-primary"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target={`#codigo${objeto.codigo}`}
+                          aria-expanded="false"
+                          aria-controls={`codigo${objeto.codigo}`}
+                        >
+                          Comentarios
+                        </button>
+                      </div>
+                      <div className="data">
+                        <small ClassName="text-body-secondary">
+                          {objeto.data}
+                        </small>
+                      </div>
+                      <div className="button">
                         {objeto.link && (
                           <a
                             href={objeto.link}
@@ -140,23 +158,6 @@ function ItensPrivado() {
                           </a>
                         )}
                       </div>
-
-                      <div id="data">
-                        <small ClassName="text-body-secondary">
-                          {objeto.data}
-                          {objeto.codigo}
-                        </small>
-                      </div>
-                      <button
-                        class="btn btn-primary"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target={`#codigo${objeto.codigo}`}
-                        aria-expanded="false"
-                        aria-controls={`codigo${objeto.codigo}`}
-                      >
-                        Comentarios
-                      </button>
                     </div>
                     <div class="collapse" id={`codigo${objeto.codigo}`}>
                       <div class="card card-body">
