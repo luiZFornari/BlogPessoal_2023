@@ -116,6 +116,10 @@
   border-radius: 2px;
 }
 
+#buttonMenu {
+  margin: 2px;
+}
+
 @media (max-width: 1000px) {
   #card-body {
     width: 100%;

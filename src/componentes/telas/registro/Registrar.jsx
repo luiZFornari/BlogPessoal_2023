@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import UsuarioContext from "./UsuarioContext.jsx";
 import FormReg from "./Form.jsx";
-import Menu from "../../Menu.jsx";
 
 function Registrar() {
   const [alerta, setAlerta] = useState({ status: "", message: "" });

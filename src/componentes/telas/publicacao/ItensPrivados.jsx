@@ -143,8 +143,8 @@ function ItensPrivado() {
                           {objeto.data}
                         </small>
                       </div>
-                      <div className="button">
-                        {objeto.link && (
+                      {objeto.link && (
+                        <div className="button">
                           <a
                             href={objeto.link}
                             class="btn btn-primary "
@@ -155,8 +155,8 @@ function ItensPrivado() {
                           >
                             Mais Informaçoes
                           </a>
-                        )}
-                      </div>
+                        </div>
+                      )}
                     </div>
                     <div class="collapse" id={`codigo${objeto.codigo}`}>
                       <div class="card card-body">

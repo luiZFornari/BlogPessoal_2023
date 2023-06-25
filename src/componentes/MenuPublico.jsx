@@ -67,7 +67,7 @@ const Menu = () => (
             </li>
           </ul>
         </div>
-        <button className="nav-item btn btn-secondary">
+        <button className="nav-item btn btn-secondary" id="buttonMenu">
           <NavLink
             className="nav-link active"
             aria-current="page"
@@ -77,7 +77,7 @@ const Menu = () => (
             Registrar
           </NavLink>
         </button>
-        <button className="nav-item btn btn-secondary">
+        <button className="nav-item btn btn-secondary" id="buttonMenu">
           <NavLink
             className="nav-link active"
             aria-current="page"

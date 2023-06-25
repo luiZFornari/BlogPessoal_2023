@@ -2,8 +2,6 @@ import { useContext } from "react";
 import Alerta from "../../comuns/Alerta";
 import ComentarioContext from "./ComentarioContext";
 import "../publicacao/Publicacao.css";
-import Autenticacao from "../../seg/Autenticacao";
-import jwt_decode from "jwt-decode";
 
 function ItensComentario() {
   const { alerta, listaComentarios } = useContext(ComentarioContext);
@@ -38,7 +36,7 @@ function ItensComentario() {
       {listaComentarios.length > 0 && (
         <div className="card border-secondary mb-3 card " id="bodyPublicacao">
           {listaComentarios.map((e) => (
-            <div className="col" key={e.id}>
+            <div className="col" key={e.usuario}>
               <div className="card " id="cardComentario">
                 <div className="card-Comentario " id="card-Comentario">
                   <div className="card-text" id="cardText">
