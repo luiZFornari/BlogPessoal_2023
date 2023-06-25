@@ -5,7 +5,6 @@ import "./Publicacao.css";
 import ComentarioPrivado from "../comentario/ComentarioPrivado";
 import Autenticacao from "../../seg/Autenticacao";
 import jwt_decode from "jwt-decode";
-import WithAuth from "../../seg/WithAuth";
 
 function ItensPrivado() {
   const {

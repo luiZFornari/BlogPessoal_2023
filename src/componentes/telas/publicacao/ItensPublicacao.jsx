@@ -5,8 +5,7 @@ import "./Publicacao.css";
 import Comentario from "../comentario/Comentario";
 
 function ItensPublico() {
-  const { setObjeto, alerta, setAlerta, listaObjetos } =
-    useContext(PublicacaoContext);
+  const { alerta, listaObjetos } = useContext(PublicacaoContext);
 
   (function () {
     "use strict";
@@ -40,7 +39,7 @@ function ItensPublico() {
         <h1>Nenhuma publicaçao encontrada</h1>
       )}
       {listaObjetosInvertida.length > 0 && (
-        <div className={"card border-secondary mb-3 card "} id="bodyPublicacao">
+        <div className="card border-secondary mb-3 card " id="bodyPublicacao">
           {listaObjetosInvertida.map((objeto) => (
             <div class="col">
               <div ClassName="card " id="cardPublicacao">
@@ -63,16 +62,16 @@ function ItensPublico() {
                           class="btn btn-primary"
                           type="button"
                           data-bs-toggle="collapse"
-                          data-bs-target="#collapseExample"
+                          data-bs-target={`#codigo${objeto.codigo}`}
                           aria-expanded="false"
-                          aria-controls="collapseExample"
+                          aria-controls={`codigo${objeto.codigo}`}
                         >
                           Comentarios
                         </button>
                       </div>
                       <div className="data">
                         <small ClassName="text-body-secondary">
-                          {objeto.data} {objeto.codigo}
+                          {objeto.data}
                         </small>
                       </div>
                       <div className="button">
@@ -90,7 +89,7 @@ function ItensPublico() {
                         )}
                       </div>
                     </div>
-                    <div class="collapse" id="collapseExample">
+                    <div class="collapse" id={`codigo${objeto.codigo}`}>
                       <div class="card card-body">
                         <Comentario codigoPublicacao={objeto.codigo} />
                       </div>

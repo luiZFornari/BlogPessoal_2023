@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import FormularioComentario from "./FormularioComentario";
 import Carregando from "../../comuns/Carregando";
 import { getPublicacoesAPI } from "../../serviços/PublicacaoServico";
 import {
@@ -11,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import ComentarioContext from "./ComentarioContext";
 import ItensComentario from "./ItensComentario";
 
-function ComentarioPrivado({ codigoPublicacao }) {
+function Comentario({ codigoPublicacao }) {
   let navigate = useNavigate();
 
   const [alerta, setAlerta] = useState({ status: "", message: "" });
@@ -118,4 +119,4 @@ function ComentarioPrivado({ codigoPublicacao }) {
   );
 }
 
-export default ComentarioPrivado;
+export default Comentario;

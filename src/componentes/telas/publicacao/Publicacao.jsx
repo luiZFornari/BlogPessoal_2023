@@ -4,8 +4,6 @@ import Carregando from "../../comuns/Carregando";
 import {
   getPublicacoesAPI,
   getPublicacoesPorCodigoAPI,
-  deletePublicacoesPorCodigoAPI,
-  cadastraPublicacoesAPI,
 } from "../../serviços/PublicacaoServico.jsx";
 
 import { useNavigate } from "react-router-dom";

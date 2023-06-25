@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import Alerta from "../../comuns/Alerta";
 import ComentarioContext from "./ComentarioContext";
-import PublicacaoContext from "../publicacao/PublicacaoContext";
+import "../publicacao/Publicacao.css";
+import Autenticacao from "../../seg/Autenticacao";
+import jwt_decode from "jwt-decode";
 
 function ItensComentario() {
-  const { setComentario, alerta, setAlerta, listaComentarios, publicacao } =
-    useContext(ComentarioContext);
+  const { alerta, listaComentarios } = useContext(ComentarioContext);
 
   // Custom Bootstrap validation styles
   document.addEventListener("DOMContentLoaded", function () {
@@ -40,9 +41,6 @@ function ItensComentario() {
             <div className="col" key={e.id}>
               <div className="card " id="cardComentario">
                 <div className="card-Comentario " id="card-Comentario">
-                  <div className="card-usuario" id="usuario">
-                    <div id="usuario">{e.usuario}</div>
-                  </div>
                   <div className="card-text" id="cardText">
                     <br />
                     {e.texto} <br />

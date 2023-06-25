@@ -11,7 +11,6 @@ import {
 import { useNavigate } from "react-router-dom";
 import ComentarioContext from "./ComentarioContext";
 import ItensComentarioPrivado from "./ItensComentarioPrivado";
-import WithAuth from "../../seg/WithAuth";
 
 function ComentarioPrivado({ codigoPublicacao }) {
   let navigate = useNavigate();

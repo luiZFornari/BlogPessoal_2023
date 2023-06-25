@@ -1,13 +1,11 @@
 import { useContext } from "react";
 import Alerta from "../../comuns/Alerta";
 import ComentarioContext from "./ComentarioContext";
-import FormularioComentario from "./FormularioComentario";
 import "../publicacao/Publicacao.css";
 import Autenticacao from "../../seg/Autenticacao";
 import jwt_decode from "jwt-decode";
-import WithAuth from "../../seg/WithAuth";
 
-function ItensComentario({ publicacao }) {
+function ItensComentarioPrivado({ publicacao }) {
   const {
     setComentario,
     remover,
@@ -129,4 +127,4 @@ function ItensComentario({ publicacao }) {
   );
 }
 
-export default ItensComentario;
+export default ItensComentarioPrivado;
