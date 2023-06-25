@@ -108,6 +108,14 @@
   margin: 5px;
 }
 
+#carregando {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fdfdfd;
+  border-radius: 2px;
+}
+
 @media (max-width: 1000px) {
   #card-body {
     width: 100%;

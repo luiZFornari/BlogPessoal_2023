@@ -4,8 +4,8 @@ function Carregando(props) {
       {!props.carregando ? (
         props.children
       ) : (
-        <div class="spinner-border text-dark" role="status">
-          <span class="visually-hidden">Loading...</span>
+        <div class="spinner-border text-dark" role="status" id="carregando">
+          <span class="visually">Loading...</span>
         </div>
       )}
     </>
